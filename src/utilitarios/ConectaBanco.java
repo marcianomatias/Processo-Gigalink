@@ -25,7 +25,7 @@ public class ConectaBanco {
    public void conexao(){
       
        try {
-            System.setProperty("jdbc.Driver", DRIVER);
+           System.setProperty("jdbc.Driver", DRIVER);
            conn = DriverManager.getConnection(URL, usuario, senha);
            JOptionPane.showMessageDialog(null, "Conectado com Sucesso ao BD!!!");
        } catch (SQLException ex) {
