@@ -16,17 +16,17 @@ import javax.swing.JOptionPane;
 public class ConectaBanco {
    public Statement stm;
    public ResultSet rs;
-   private  String driver = "org.postgresql.Driver";
-   private  String caminho = "jdbc:postgresql://localhost:5433/programavendas";
-   private  String usuario = "postgres";
-   private  String senha = "emcasa12";
+   private final String DRIVER = "com.msql.jdbc.Driver";
+   private final String URL = "jdbc:mysql://localhost:3306/vendas";
+   private final String usuario = "root";
+   private final String senha = "emcasa12";
    public Connection conn;
    
    public void conexao(){
       
        try {
-            System.setProperty("jdbc.Driver", driver);
-           conn = DriverManager.getConnection(caminho, usuario, senha);
+            System.setProperty("jdbc.Driver", DRIVER);
+           conn = DriverManager.getConnection(URL, usuario, senha);
            JOptionPane.showMessageDialog(null, "Conectado com Sucesso ao BD!!!");
        } catch (SQLException ex) {
           JOptionPane.showMessageDialog(null, "Erro de conexão ao BD !!! \n Erro:"+ex.getMessage());
