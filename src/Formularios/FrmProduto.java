@@ -36,10 +36,8 @@ public class FrmProduto extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
@@ -52,8 +50,6 @@ public class FrmProduto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(900, 600));
-
-        jLabel2.setText("Código:");
 
         jLabel3.setText("Nome:");
 
@@ -112,10 +108,6 @@ public class FrmProduto extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -140,11 +132,7 @@ public class FrmProduto extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
+                        .addGap(93, 93, 93)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
@@ -199,12 +187,13 @@ public class FrmProduto extends javax.swing.JFrame {
             PreparedStatement pst = conecta.conn.prepareCall("insert into produto (nome,descricao) values (?,?)");
             pst.setString(1,txtNome.getText());
             pst.setString(2,txtDescricao.getText());
-            pst.execute();
+            
+            pst.executeUpdate();
             JOptionPane.showMessageDialog(rootPane, "Salvo com Sucesso!!!");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, "Erro na iserção!!!\n Erro: " + ex);
         }
-            txtCodigo.setText("");
+           // txtCodigo.setText("");
             txtNome.setText("");            
             txtDescricao.setText("");            
             txtNome.setEnabled(false);            
@@ -225,7 +214,7 @@ public class FrmProduto extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, "Erro na iserção!!!\n Erro: " + ex);
         }
-        txtCodigo.setText("");
+        //txtCodigo.setText("");
         txtNome.setText("");
         txtDescricao.setText("");
         txtNome.setEnabled(false);
@@ -243,7 +232,7 @@ public class FrmProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-      txtCodigo.setText("");
+    //  txtCodigo.setText("");
       txtNome.setText("");      
       txtDescricao.setText("");     
       txtNome.setEnabled(true);      
@@ -294,12 +283,10 @@ public class FrmProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextArea txtDescricao;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables

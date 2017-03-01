@@ -17,7 +17,7 @@ public class ConectaBanco {
    public Statement stm;
    public ResultSet rs;
    private final String DRIVER = "com.msql.jdbc.Driver";
-   private final String URL = "jdbc:mysql://localhost:3306/vendas";
+   private final String URL = "jdbc:mysql://localhost:3306/bd_vendas";
    private final String usuario = "root";
    private final String senha = "emcasa12";
    public Connection conn;
@@ -27,7 +27,7 @@ public class ConectaBanco {
        try {
            System.setProperty("jdbc.Driver", DRIVER);
            conn = DriverManager.getConnection(URL, usuario, senha);
-           JOptionPane.showMessageDialog(null, "Conectado com Sucesso ao BD!!!");
+           JOptionPane.showMessageDialog(null, "SEJA BEM VINDO!!!");
        } catch (SQLException ex) {
           JOptionPane.showMessageDialog(null, "Erro de conexão ao BD !!! \n Erro:"+ex.getMessage());
        }   
